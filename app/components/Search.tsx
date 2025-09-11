@@ -40,7 +40,24 @@ const Search: FC<SearchProps> = ({}) => {
       handleSearch();
     }
   };
-
+  const handleScrapping = async () => {
+    if (!searchQuery.trim()) return;
+    setScrapLoading(true);
+    try {
+      const response = await axios.post(
+        "https://coding1343453.app.n8n.cloud/webhook/0cfb73e2-4a13-4352-b2fb-8315886382eb",
+        {
+          chatInput: searchQuery,
+        }
+      );
+      console.log("Scraping response:", response.data);
+      // Handle the response data as needed
+    } catch (error) {
+      console.error("Error calling scraping API:", error);
+    } finally {
+      setScrapLoading(false);
+    }
+  };
   return (
     <div className="w-full h-screen bg-white p-10 space-y-3">
       <div className="flex bg-white justify-center items-center border border-gray-500 rounded p-1 gap-1">
@@ -72,12 +89,14 @@ const Search: FC<SearchProps> = ({}) => {
         ) : searchResults.length > 0 ? (
           <div>
             <div className="w-full flex justify-end">
-              <button className="bg-black text-white w-40 py-2 rounded cursor-pointer mb-2">
-                {scrapLoading ? (
-                  <LuLoaderCircle className="w-6 h-6 animate-spin text-white mx-auto" />
-                ) : (
-                  "Scrap Data"
-                )}
+              <button
+                onClick={handleScrapping}
+                className="bg-black text-white px-3 py-2 rounded cursor-pointer mb-2"
+              >
+                {scrapLoading
+                  ? // <LuLoaderCircle className="w-6 h-6 animate-spin text-white mx-auto" />
+                    "Submitting Request..."
+                  : "Scrap Data"}
               </button>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
