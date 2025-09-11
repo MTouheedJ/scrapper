@@ -72,6 +72,7 @@ const Search: FC<SearchProps> = ({}) => {
         />
         <button
           onClick={handleSearch}
+          disabled={scrapLoading || loading}
           className="bg-black text-white w-20 py-2 rounded cursor-pointer"
         >
           {loading ? (
@@ -91,6 +92,7 @@ const Search: FC<SearchProps> = ({}) => {
             <div className="w-full flex justify-end">
               <button
                 onClick={handleScrapping}
+                disabled={scrapLoading || loading}
                 className="bg-black text-white px-3 py-2 rounded cursor-pointer mb-2"
               >
                 {scrapLoading
