@@ -89,7 +89,11 @@ const Search: FC<SearchProps> = ({}) => {
           </div>
         ) : searchResults.length > 0 ? (
           <div>
-            <div className="w-full flex justify-end">
+            <div className="w-full flex justify-between items-center">
+              <p>
+                If results are not according to the expectations, please click
+                on the button to scrap the data
+              </p>
               <button
                 onClick={handleScrapping}
                 disabled={scrapLoading || loading}
