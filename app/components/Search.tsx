@@ -98,7 +98,7 @@ const Search: FC<SearchProps> = ({}) => {
           <button
             onClick={handleScrapping}
             disabled={scrapLoading || loading}
-            className="bg-black text-white px-3 py-2 rounded cursor-pointer mb-2"
+            className="bg-purple-600 text-white px-3 py-2 rounded cursor-pointer mb-2"
           >
             {scrapLoading ? "Submitting Request..." : "Scrap Data"}
           </button>
