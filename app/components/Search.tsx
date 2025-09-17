@@ -89,21 +89,48 @@ const Search: FC<SearchProps> = ({}) => {
           </div>
         ) : searchResults.length > 0 ? (
           <div>
-            <div className="w-full flex justify-between items-center">
-              <p>
-                If results are not according to the expectations, please click
-                on the button to scrap the data
-              </p>
-              <button
-                onClick={handleScrapping}
-                disabled={scrapLoading || loading}
-                className="bg-black text-white px-3 py-2 rounded cursor-pointer mb-2"
-              >
-                {scrapLoading
-                  ? // <LuLoaderCircle className="w-6 h-6 animate-spin text-white mx-auto" />
-                    "Submitting Request..."
-                  : "Scrap Data"}
-              </button>
+            <div className="w-full mb-4">
+              <div className="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl shadow-sm">
+                <div className="flex items-start space-x-3">
+                  <div className="flex-shrink-0">
+                    <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                      <svg
+                        className="w-4 h-4 text-blue-600"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-sm font-semibold text-gray-900 mb-1">
+                      Not satisfied with the results?
+                    </h4>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      Click the{" "}
+                      <span className="font-medium text-blue-600">
+                        "Scrap Data"
+                      </span>{" "}
+                      button to fetch fresh, updated data from our advanced
+                      scraping engine.
+                    </p>
+                  </div>
+                  <button
+                    onClick={handleScrapping}
+                    disabled={scrapLoading || loading}
+                    className="bg-black text-white px-3 py-2 rounded cursor-pointer mb-2"
+                  >
+                    {scrapLoading ? "Submitting Request..." : "Scrap Data"}
+                  </button>
+                </div>
+              </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {searchResults.map((result) => (
