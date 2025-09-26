@@ -24,7 +24,7 @@ const Search: FC<SearchProps> = ({}) => {
     setHasSearched(true);
     try {
       const response = await axios.post(
-        "https://coding1343453.app.n8n.cloud/webhook/c5a12841-4f48-40af-9054-9e2acdca802c",
+        "https://mehti.app.n8n.cloud/webhook/c5a12841-4f48-40af-9054-9e2acdca802c",
         {
           chatInput: searchQuery,
         }
@@ -47,7 +47,7 @@ const Search: FC<SearchProps> = ({}) => {
     setScrapLoading(true);
     try {
       const response = await axios.post(
-        "https://coding1343453.app.n8n.cloud/webhook/0cfb73e2-4a13-4352-b2fb-8315886382eb",
+        "https://mehti.app.n8n.cloud/webhook/c5a12841-4f48-40af-9054-9e2acdca802c",
         {
           chatInput: searchQuery,
         }
